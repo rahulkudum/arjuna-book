@@ -218,8 +218,10 @@ function Book() {
            break;
           }
          }
-         book.quantity = 1;
-         if (f === -1) dum.push(book);
+         if (book) {
+          book.quantity = 1;
+          if (f === -1) dum.push(book);
+         }
 
          return dum;
         });
