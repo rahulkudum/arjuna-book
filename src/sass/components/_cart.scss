@@ -1,0 +1,107 @@
+.cart {
+ @media only screen and (max-width: $bp-medium) {
+  order: -1;
+ }
+
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ font-weight: bold;
+ font-size: 2rem;
+ line-height: 3.1rem;
+ padding: 5rem;
+ border: 1px solid rgba(95, 68, 68, 0.5);
+ border-radius: 2.5rem;
+ min-width: 60rem;
+ color: #8e8e8e;
+ position: relative;
+
+ &__book {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-bottom: 3rem;
+  & img {
+   width: 11.2rem;
+   margin-right: 2rem;
+  }
+  &__title {
+   font-size: 2.5rem;
+   line-height: 3.9rem;
+   margin: 1rem 0;
+   color: #5f4444;
+  }
+  &__price {
+   width: 26rem;
+   display: flex;
+   justify-content: space-between;
+   margin: 1rem 0;
+   &__second {
+    color: #000;
+   }
+  }
+
+  &__quantity {
+   width: 26rem;
+   display: flex;
+   justify-content: space-between;
+   margin: 1rem 0;
+   &__second {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+
+    & span {
+     margin: 0 1rem;
+    }
+   }
+  }
+
+  &__change-btn {
+   border: none;
+   background-color: var(--color-grey-light-2);
+   cursor: pointer;
+
+   text-align: center;
+  }
+
+  &__change-icon {
+   height: 2rem;
+   width: 2rem;
+   fill: var(--color-grey-dark-3);
+  }
+ }
+
+ &__total {
+  background-color: #fef4eb;
+  padding: 3rem;
+  font-size: 4rem;
+  line-height: 6.2rem;
+  border-radius: 2rem;
+  color: #000;
+  margin-top: 3rem !important;
+ }
+
+ &__label {
+  position: absolute;
+  top: -16px;
+  left: 35px;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  color: #5f4444;
+  background-color: #fff;
+ }
+
+ &__line {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+
+  &__second {
+   flex-basis: 40%;
+   text-align: center;
+   color: #000;
+  }
+ }
+}

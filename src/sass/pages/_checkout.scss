@@ -1,0 +1,26 @@
+.pcontainer {
+ background-color: #fff;
+ color: #000;
+ margin: 0;
+
+ max-width: 100%;
+ width: 100%;
+}
+
+.content {
+ padding: 0 10rem;
+ @media only screen and (max-width: $bp-medium) {
+  padding: 0 2rem;
+ }
+}
+
+.section-main {
+ display: flex;
+ justify-content: space-around;
+ align-items: stretch;
+ @media only screen and (max-width: $bp-medium) {
+  flex-wrap: wrap;
+  justify-content: center;
+ }
+ padding-bottom: 10rem;
+}

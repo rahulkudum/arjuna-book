@@ -1,0 +1,30 @@
+body {
+ font-family: "Sahitya", sans-serif;
+ font-weight: 400;
+ /*font-size: 16px;*/
+ line-height: 1.7;
+}
+
+.primary-heading {
+ padding: 5rem 0;
+ text-align: center;
+ font-family: Sail;
+ font-size: 6rem;
+ line-height: 7.2rem;
+ &--left {
+  text-align: left;
+ }
+}
+
+.secondary-heading {
+ margin-bottom: 5rem;
+ text-align: center;
+ font-size: 3.6rem;
+ line-height: 5rem;
+ color: #5f4444;
+ font-weight: 700;
+
+ &--left {
+  text-align: left;
+ }
+}

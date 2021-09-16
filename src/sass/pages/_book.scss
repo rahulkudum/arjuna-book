@@ -1,0 +1,63 @@
+.container {
+ background-color: #fff;
+ color: #000;
+ margin: 0;
+ max-width: 100%;
+ width: 100%;
+}
+
+.header {
+ font-size: 1.4rem;
+ height: 7rem;
+
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.section-about {
+ display: flex;
+ align-items: stretch;
+
+ @media only screen and (max-width: $bp-medium) {
+  flex-wrap: wrap;
+  justify-content: center;
+ }
+}
+
+.div-chapters {
+ background-color: #fef4eb;
+}
+
+.section-chapters {
+ display: flex;
+
+ align-items: center;
+ @media only screen and (max-width: $bp-medium) {
+  flex-direction: column;
+ }
+}
+
+.section-books {
+ text-align: center;
+
+ background-color: #fef4eb;
+
+ &__container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @media only screen and (max-width: $bp-medium) {
+   flex-direction: column;
+   margin-top: 5rem;
+  }
+ }
+}
+
+.section-carousel {
+ text-align: center;
+}
+
+.carousel-img {
+ height: 30rem;
+}

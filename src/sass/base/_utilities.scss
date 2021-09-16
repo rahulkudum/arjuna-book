@@ -1,0 +1,58 @@
+.flex-box {
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ font-size: 3rem;
+ padding: 5rem;
+ @media only screen and (max-width: $bp-medium) {
+  flex-direction: column;
+  justify-content: center;
+ }
+ & p {
+  font-size: 3.6rem;
+  line-height: 5rem;
+ }
+}
+
+.btn {
+ border: none;
+ background-color: #5f4444;
+ margin: 0;
+ padding: 1rem 10rem;
+ border-radius: 1rem;
+ font-size: 4rem;
+ line-height: 5rem;
+ color: white;
+ @media only screen and (max-width: $bp-medium) {
+  margin: 3rem 0 0 0;
+ }
+
+ &:hover {
+  background-color: darken(#3cb371, 10%);
+ }
+}
+
+.btn--playball {
+ font-family: Playball;
+}
+
+.btn--sail {
+ font-family: Sail;
+}
+
+.line {
+ display: flex;
+ justify-content: space-between;
+}
+
+.center-text {
+ text-align: center;
+}
+
+.margin-tb--small {
+ margin: 1rem 0;
+}
+
+.color--black {
+ color: #000;
+}
