@@ -56,3 +56,10 @@
 .color--black {
  color: #000;
 }
+
+.margin-top--big {
+ margin-top: 8rem;
+ @media only screen and (max-width: $bp-medium) {
+  margin: 0;
+ }
+}

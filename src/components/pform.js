@@ -243,7 +243,7 @@ function Pform() {
        </label>
       </div>
 
-      <div class="form__group center-text">
+      <div class="form__group center-text margin-top--big">
        <button class="btn btn--sail">Proceed to Checkout</button>
       </div>
      </form>

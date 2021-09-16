@@ -42,6 +42,7 @@
  text-align: center;
 
  background-color: #fef4eb;
+ padding: 0 5rem;
 
  &__container {
   display: flex;
@@ -56,6 +57,10 @@
 
 .section-carousel {
  text-align: center;
+ padding: 0 15rem;
+ @media only screen and (max-width: $bp-medium) {
+  padding: 0;
+ }
 }
 
 .carousel-img {

@@ -90,7 +90,7 @@ function Book() {
       </div>
       <div class="navigation__link-box">
        <a href="#" class="navigation__link">
-        Support
+        Contests
        </a>
       </div>
      </nav>
@@ -148,8 +148,6 @@ function Book() {
        {book
         ? book.chapters.map((chapter, i) => {
            if (i === chap) {
-            return <div class="chap-desc chap-desc--active">{chapter.desc}</div>;
-           } else {
             return <div class="chap-desc">{chapter.desc}</div>;
            }
           })
