@@ -163,7 +163,9 @@ function Book() {
         {book.testimonials.map((testimonial, i) => {
          return (
           <div class="testimonial-box">
-           <p class="testimonial-box__comment">{testimonial.comment}</p>
+           <div class="testimonial-box__comment">
+            <p>{testimonial.comment}</p>
+           </div>
            <p class="testimonial-box__name">{testimonial.name}</p>
            <p class="testimonial-box__position">{testimonial.position}</p>
           </div>
