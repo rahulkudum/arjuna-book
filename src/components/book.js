@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Switch, Route, useParams, useRouteMatch, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -9,9 +9,6 @@ import Skeleton from "react-loading-skeleton";
 import "../css/main.css";
 
 import logo from "../images/logo.png";
-import tm from "../images/tm.png";
-import aoc from "../images/aoc.png";
-import cc from "../images/cc.png";
 
 import { CartBooks } from "../context/storage";
 
