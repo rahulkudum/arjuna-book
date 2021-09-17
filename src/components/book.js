@@ -159,7 +159,7 @@ function Book() {
       <h1 class="primary-heading">Appreciation for the Book</h1>
 
       {book ? (
-       <Carousel responsive={responsive}>
+       <Carousel swipeable={true} draggable={true} showDots={true} keyBoardControl={true} infinite={true} responsive={responsive}>
         {book.testimonials.map((testimonial, i) => {
          return (
           <div class="testimonial-box">

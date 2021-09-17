@@ -57,9 +57,10 @@
 
 .section-carousel {
  text-align: center;
- padding: 0 15rem;
+ padding: 0 15rem 3rem 15rem;
  @media only screen and (max-width: $bp-medium) {
   padding: 0;
+  padding-bottom: 3rem;
  }
 }
 
