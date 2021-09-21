@@ -46,7 +46,7 @@ function Pform() {
   const data = await axios.post("https://arjunadb.herokuapp.com/payment/pay", { price: tprice }).then((res) => res.data);
 
   const options = {
-   key: "jk",
+   key: "rzp_test_WQG7sTrp3IgCeQ",
    amount: data.amount.toString(),
    currency: data.currency,
    name: "Arjuna Books",

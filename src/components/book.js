@@ -40,6 +40,19 @@ function Book() {
  const [chap, setChap] = useState(0);
  const [allBooks, setAllBooks] = useState([]);
 
+ console.log(window.screen.width);
+
+ useEffect(() => {
+  alert(`width:${window.screen.width} pixel-ratio:${window.devicePixelRatio}`);
+  let pixelVal;
+  if (window.screen.width > 600) {
+   pixelVal = 9 / window.devicePixelRatio;
+  } else {
+   pixelVal = 6.4 / window.devicePixelRatio;
+  }
+  document.querySelector("html").style.fontSize = pixelVal + "px";
+ }, []);
+
  useEffect(() => {
   axios
    .post("https://arjunadb.herokuapp.com/book/find", { name: name })
