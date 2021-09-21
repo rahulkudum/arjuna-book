@@ -48,7 +48,7 @@ function Book() {
   if (window.screen.width > 600) {
    pixelVal = 9 / window.devicePixelRatio;
   } else {
-   pixelVal = 6.4 / window.devicePixelRatio;
+   pixelVal = 6.4;
   }
   document.querySelector("html").style.fontSize = pixelVal + "px";
  }, []);
