@@ -71,6 +71,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
 html {
   box-sizing: border-box;
   font-size: 9px; }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 6.4px; } }
 
 body {
   font-weight: 400;
