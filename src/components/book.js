@@ -46,7 +46,9 @@ function Book() {
   alert(`width:${window.screen.width} pixel-ratio:${window.devicePixelRatio}`);
   let pixelVal;
   if (window.screen.width > 600) {
-   pixelVal = 9 / window.devicePixelRatio;
+   let minus = Math.floor(window.devicePixelRatio) - 1;
+   if (minus === -1) minus = 0;
+   pixelVal = 9 / window.devicePixelRatio - minus;
   } else {
    pixelVal = 6.4;
   }
