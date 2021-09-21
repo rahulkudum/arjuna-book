@@ -167,6 +167,9 @@ body {
   flex-basis: 25%;
   padding: 3rem;
   background-color: #fff; }
+  @media only screen and (max-width: 56.25em) {
+    .book-box {
+      margin: 5rem 0; } }
   .book-box__img {
     height: 30rem; }
   .book-box h3 {
@@ -498,7 +501,8 @@ body {
     @media only screen and (max-width: 56.25em) {
       .section-books__container {
         flex-direction: column;
-        margin-top: 5rem; } }
+        margin-top: 5rem;
+        padding: 0; } }
 
 .section-carousel {
   text-align: center;
