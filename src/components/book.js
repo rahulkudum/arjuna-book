@@ -43,8 +43,6 @@ function Book() {
  console.log(window.screen.width);
 
  useEffect(() => {
-  alert(`width:${window.screen.width} pixel-ratio:${window.devicePixelRatio}`);
-
   if (window.screen.width > 900) {
    let minus = Math.floor(window.devicePixelRatio) - 1;
    if (minus === -1) minus = 0;
@@ -82,7 +80,14 @@ function Book() {
    <div class="container">
     <header class="nav_header">
      <nav class="navigation">
-      <img src={logo} alt="Arjuna logo" class="navigation__logo" />
+      <img
+       src={logo}
+       alt="Arjuna logo"
+       class="navigation__logo"
+       onClick={() => {
+        alert(`width:${window.screen.width} pixel-ratio:${window.devicePixelRatio}`);
+       }}
+      />
       <div class="navigation__link-box">
        <a href="#" class="navigation__link">
         Books
