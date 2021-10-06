@@ -161,9 +161,33 @@ body {
     .margin-top--big {
       margin: 0; } }
 
+.carousel-button {
+  -webkit-tap-highlight-color: transparent;
+  position: absolute;
+  top: 0%;
+  bottom: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer; }
+  .carousel-button--right {
+    right: 0; }
+  .carousel-button--left {
+    left: 0; }
+  @media only screen and (max-width: 56.25em) {
+    .carousel-button {
+      cursor: default;
+      top: 85%; }
+      .carousel-button--right {
+        right: 10%; }
+      .carousel-button--left {
+        left: 10%; } }
+  .carousel-button__icon {
+    width: 5rem;
+    height: 5rem; }
+
 .book-box {
   font-size: 1.5rem;
-  margin: 5rem;
+  margin: 0rem 10rem 5rem 10rem;
   transition: all 0.2s;
   cursor: pointer;
   box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
@@ -172,7 +196,7 @@ body {
   background-color: #fff; }
   @media only screen and (max-width: 56.25em) {
     .book-box {
-      margin: 5rem 0; } }
+      margin: 0 0 10rem 0; } }
   .book-box__img {
     height: 30rem; }
   .book-box h3 {
@@ -191,6 +215,70 @@ body {
     font-size: 2rem; }
   .book-box:hover {
     transform: scale(1.08); }
+
+.card {
+  position: relative;
+  height: 30rem;
+  margin: 0 10rem 5rem 10rem; }
+  @media only screen and (max-width: 56.25em) {
+    .card {
+      margin: 0 5rem 8rem 5rem; } }
+  .card__side {
+    height: 30rem;
+    transition: all 1s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .card__side--front {
+      background-color: #5f4444;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+    .card__side--back {
+      background-color: #5f4444;
+      transform: rotateY(180deg); }
+  @media only screen and (min-width: 56.25em) {
+    .card:hover .card__side--front {
+      transform: rotateY(-180deg); } }
+  @media only screen and (min-width: 56.25em) {
+    .card:hover .card__side--back {
+      transform: rotateY(0); } }
+  @media only screen and (max-width: 56.25em) {
+    .card__hover-front {
+      transform: rotateY(-180deg); } }
+  @media only screen and (max-width: 56.25em) {
+    .card__hover-back {
+      transform: rotateY(0); } }
+  .card__front {
+    font-size: 3.5rem;
+    line-height: 3.6rem;
+    color: #fff;
+    width: 75%; }
+    .card__front hr {
+      margin: 2rem 0; }
+  .card__back {
+    font-size: 2rem;
+    line-height: 3rem;
+    color: #fff;
+    width: 90%; }
+  .card__manual {
+    display: none;
+    font-size: 2rem;
+    color: #fff;
+    background-color: inherit;
+    border: none; }
+    @media only screen and (max-width: 56.25em) {
+      .card__manual {
+        display: inline-block; } }
 
 .cart {
   display: flex;
@@ -366,12 +454,15 @@ body {
   font-size: 2.6rem;
   line-height: 3rem;
   margin: 0 10rem 5rem 10rem; }
+  @media only screen and (max-width: 56.25em) {
+    .testimonial-box {
+      margin: 0 5rem 10rem 5rem; } }
   .testimonial-box__comment {
     font-family: Playball;
     color: #5f4444;
     margin-bottom: 3rem;
     text-align: center;
-    height: 30rem;
+    height: 35rem;
     display: flex;
     align-items: center; }
   .testimonial-box__name {
@@ -384,11 +475,26 @@ body {
   @media only screen and (max-width: 56.25em) {
     .cover {
       margin: 5rem;
-      width: 80%; } }
+      width: 80%;
+      height: auto; } }
+
+.cover-skeleton {
+  margin: 7rem 0 5rem 20rem; }
+  .cover-skeleton--desktop {
+    display: inline-block; }
+  .cover-skeleton--mobile {
+    display: none; }
+  @media only screen and (max-width: 56.25em) {
+    .cover-skeleton {
+      margin: 5rem; }
+      .cover-skeleton--desktop {
+        display: none; }
+      .cover-skeleton--mobile {
+        display: inline-block; } }
 
 .about {
   color: #000000;
-  margin: 7rem 20rem 7rem 3rem; }
+  margin: 7rem 20rem 3rem 3rem; }
   @media only screen and (max-width: 56.25em) {
     .about {
       margin: 0rem 5rem 5rem 5rem; } }
@@ -409,8 +515,13 @@ body {
     font-style: normal;
     font-weight: normal;
     font-size: 2.6rem;
-    line-height: 3rem;
+    line-height: 3.5rem;
+    word-spacing: 0.8rem;
     white-space: pre-line; }
+  .about__button {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 0 0; }
 
 .nav_header {
   background-color: #5f4444; }
@@ -422,6 +533,9 @@ body {
     width: auto;
     height: 12rem;
     margin: -3rem 2rem -3rem 2rem; }
+    @media only screen and (max-width: 56.25em) {
+      .navigation__logo {
+        margin: -3rem 5rem -3rem 2rem; } }
   .navigation__link:link, .navigation__link:visited {
     display: flex;
     align-items: center;
@@ -437,10 +551,9 @@ body {
       color: #cccccc; }
     @media only screen and (max-width: 56.25em) {
       .navigation__link:link, .navigation__link:visited {
-        font-size: 2rem;
-        line-height: 3rem;
+        justify-content: center;
         padding: 0 1rem;
-        margin: 0; } }
+        margin: 0 5rem 0 0; } }
 
 .nav_button {
   border: none;
@@ -476,8 +589,7 @@ body {
   align-items: center; }
 
 .section-about {
-  display: flex;
-  align-items: stretch; }
+  display: flex; }
   @media only screen and (max-width: 56.25em) {
     .section-about {
       flex-wrap: wrap;
@@ -486,20 +598,13 @@ body {
 .div-chapters {
   background-color: #fef4eb; }
 
-.section-chapters {
-  display: flex;
-  align-items: center; }
-  @media only screen and (max-width: 56.25em) {
-    .section-chapters {
-      flex-direction: column; } }
-
 .section-books {
   text-align: center;
   background-color: #fef4eb;
   padding: 0 5rem; }
   .section-books__container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap; }
     @media only screen and (max-width: 56.25em) {
       .section-books__container {
@@ -509,7 +614,7 @@ body {
 
 .section-carousel {
   text-align: center;
-  padding: 0 15rem 3rem 15rem; }
+  padding: 0 5rem 3rem 5rem; }
   @media only screen and (max-width: 56.25em) {
     .section-carousel {
       padding: 0;

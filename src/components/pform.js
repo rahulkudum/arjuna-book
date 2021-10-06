@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { CartBooks } from "../context/storage";
 import logo from "../images/logo.png";
 
@@ -89,29 +89,30 @@ function Pform() {
   paymentObject.open();
  }
 
+ useEffect(() => {
+  window.scrollTo(0, 0);
+ }, []);
+
  return (
   <div class="pcontainer">
    <header class="nav_header">
     <nav class="navigation">
-     <img src={logo} alt="Arjuna logo" class="navigation__logo" />
+     <img
+      src={logo}
+      alt="Arjuna logo"
+      class="navigation__logo"
+      onClick={() => {
+       alert(`width:${window.screen.width} pixel-ratio:${window.devicePixelRatio}`);
+      }}
+     />
      <div class="navigation__link-box">
-      <a href="#" class="navigation__link">
+      <a href="https://amalmdas.com/author/" class="navigation__link">
        Books
       </a>
      </div>
      <div class="navigation__link-box">
       <a href="#" class="navigation__link">
        Webinars
-      </a>
-     </div>
-     <div class="navigation__link-box">
-      <a href="#" class="navigation__link">
-       Courses
-      </a>
-     </div>
-     <div class="navigation__link-box">
-      <a href="#" class="navigation__link">
-       Support
       </a>
      </div>
     </nav>

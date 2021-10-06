@@ -17,7 +17,6 @@
 
 .section-about {
  display: flex;
- align-items: stretch;
 
  @media only screen and (max-width: $bp-medium) {
   flex-wrap: wrap;
@@ -29,15 +28,6 @@
  background-color: #fef4eb;
 }
 
-.section-chapters {
- display: flex;
-
- align-items: center;
- @media only screen and (max-width: $bp-medium) {
-  flex-direction: column;
- }
-}
-
 .section-books {
  text-align: center;
 
@@ -46,7 +36,7 @@
 
  &__container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
   @media only screen and (max-width: $bp-medium) {
    flex-direction: column;
@@ -58,7 +48,8 @@
 
 .section-carousel {
  text-align: center;
- padding: 0 15rem 3rem 15rem;
+ padding: 0 5rem 3rem 5rem;
+
  @media only screen and (max-width: $bp-medium) {
   padding: 0;
   padding-bottom: 3rem;

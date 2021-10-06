@@ -3,8 +3,32 @@
  @media only screen and (max-width: $bp-medium) {
   margin: 5rem;
   width: 80%;
+  height: auto;
  }
  height: 62rem;
+}
+
+.cover-skeleton {
+ margin: 7rem 0 5rem 20rem;
+
+ &--desktop {
+  display: inline-block;
+ }
+
+ &--mobile {
+  display: none;
+ }
+
+ @media only screen and (max-width: $bp-medium) {
+  margin: 5rem;
+
+  &--desktop {
+   display: none;
+  }
+  &--mobile {
+   display: inline-block;
+  }
+ }
 }
 
 .about {
@@ -13,7 +37,7 @@
  //  flex-direction: column;
  //  justify-content: flex-start;
 
- margin: 7rem 20rem 7rem 3rem;
+ margin: 7rem 20rem 3rem 3rem;
  @media only screen and (max-width: $bp-medium) {
   margin: 0rem 5rem 5rem 5rem;
  }
@@ -23,6 +47,7 @@
   font-weight: bold;
   font-size: 6rem;
   line-height: 6rem;
+
   margin-bottom: 3rem;
  }
 
@@ -39,7 +64,14 @@
   font-style: normal;
   font-weight: normal;
   font-size: 2.6rem;
-  line-height: 3rem;
+  line-height: 3.5rem;
+  word-spacing: 0.8rem;
   white-space: pre-line;
+ }
+
+ &__button {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 0 0;
  }
 }

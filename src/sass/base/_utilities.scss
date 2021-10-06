@@ -23,6 +23,7 @@
  font-size: 4rem;
  line-height: 5rem;
  color: white;
+
  @media only screen and (max-width: $bp-medium) {
   margin: 3rem 0 0 0;
  }
@@ -61,5 +62,41 @@
  margin-top: 8rem;
  @media only screen and (max-width: $bp-medium) {
   margin: 0;
+ }
+}
+
+.carousel-button {
+ -webkit-tap-highlight-color: transparent;
+
+ position: absolute;
+ top: 0%;
+ bottom: 0;
+ &--right {
+  right: 0;
+ }
+ &--left {
+  left: 0;
+ }
+
+ @media only screen and (max-width: $bp-medium) {
+  cursor: default;
+  top: 85%;
+  &--right {
+   right: 10%;
+  }
+  &--left {
+   left: 10%;
+  }
+ }
+ //  width: 7rem;
+ //  height: 7rem;
+
+ border: none;
+ background-color: transparent;
+ cursor: pointer;
+
+ &__icon {
+  width: 5rem;
+  height: 5rem;
  }
 }

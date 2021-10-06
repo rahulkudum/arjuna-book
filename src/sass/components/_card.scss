@@ -1,0 +1,94 @@
+.card {
+ // FUNCTIONALITY
+ //  perspective: 300rem;
+ //  -moz-perspective: 10rem;
+ position: relative;
+ height: 30rem;
+
+ margin: 0 10rem 5rem 10rem;
+ @media only screen and (max-width: $bp-medium) {
+  margin: 0 5rem 8rem 5rem;
+ }
+
+ &__side {
+  height: 30rem;
+  transition: all 1s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 2.5rem;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--front {
+   background-color: #5f4444;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+  }
+
+  &--back {
+   background-color: #5f4444;
+   transform: rotateY(180deg);
+  }
+ }
+
+ &:hover &__side--front {
+  @media only screen and (min-width: $bp-medium) {
+   transform: rotateY(-180deg);
+  }
+ }
+
+ &:hover &__side--back {
+  @media only screen and (min-width: $bp-medium) {
+   transform: rotateY(0);
+  }
+ }
+
+ &__hover-front {
+  @media only screen and (max-width: $bp-medium) {
+   transform: rotateY(-180deg);
+  }
+ }
+
+ &__hover-back {
+  @media only screen and (max-width: $bp-medium) {
+   transform: rotateY(0);
+  }
+ }
+
+ &__front {
+  font-size: 3.5rem;
+  line-height: 3.6rem;
+  color: #fff;
+  width: 75%;
+  & hr {
+   margin: 2rem 0;
+  }
+ }
+
+ &__back {
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #fff;
+  width: 90%;
+ }
+
+ &__manual {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  background-color: inherit;
+  border: none;
+
+  @media only screen and (max-width: $bp-medium) {
+   display: inline-block;
+  }
+ }
+}

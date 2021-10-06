@@ -2,12 +2,17 @@
  font-size: 2.6rem;
  line-height: 3rem;
  margin: 0 10rem 5rem 10rem;
+
+ @media only screen and (max-width: $bp-medium) {
+  margin: 0 5rem 10rem 5rem;
+ }
+
  &__comment {
   font-family: Playball;
   color: #5f4444;
   margin-bottom: 3rem;
   text-align: center;
-  height: 30rem;
+  height: 35rem;
   display: flex;
   align-items: center;
  }

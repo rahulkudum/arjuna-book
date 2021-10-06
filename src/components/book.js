@@ -9,6 +9,7 @@ import Skeleton from "react-loading-skeleton";
 import "../css/main.css";
 
 import logo from "../images/logo.png";
+import Icons from "../images/sprite.svg";
 
 import { CartBooks } from "../context/storage";
 
@@ -52,12 +53,12 @@ function Book() {
  }, []);
 
  useEffect(() => {
+  window.scrollTo(0, 0);
   axios
    .post("https://arjunadb.herokuapp.com/book/find", { name: name })
    .then((res) => {
     setBook(res.data);
     console.log(res.data);
-    window.scrollTo(0, 0);
     axios
      .get("https://arjunadb.herokuapp.com/book/")
      .then((resp) => {
@@ -75,6 +76,36 @@ function Book() {
   console.log(book);
  }, [name]);
 
+ const CustomRightArrow = ({ onClick, ...rest }) => {
+  const {
+   onMove,
+   carouselState: { currentSlide, deviceType },
+  } = rest;
+  // onMove means if dragging or swiping in progress.
+  return (
+   <button class="carousel-button carousel-button--right" onClick={() => onClick()}>
+    <svg class="carousel-button__icon">
+     <use xlinkHref={`${Icons}#icon-chevron-with-circle-right`}></use>
+    </svg>
+   </button>
+  );
+ };
+
+ const CustomLeftArrow = ({ onClick, ...rest }) => {
+  const {
+   onMove,
+   carouselState: { currentSlide, deviceType },
+  } = rest;
+  // onMove means if dragging or swiping in progress.
+  return (
+   <button class="carousel-button carousel-button--left" onClick={() => onClick()}>
+    <svg class="carousel-button__icon">
+     <use xlinkHref={`${Icons}#icon-chevron-with-circle-left`}></use>
+    </svg>
+   </button>
+  );
+ };
+
  return (
   <>
    <div class="container">
@@ -89,7 +120,7 @@ function Book() {
        }}
       />
       <div class="navigation__link-box">
-       <a href="#" class="navigation__link">
+       <a href="https://amalmdas.com/author/" class="navigation__link">
         Books
        </a>
       </div>
@@ -98,75 +129,119 @@ function Book() {
         Webinars
        </a>
       </div>
-      <div class="navigation__link-box">
-       <a href="#" class="navigation__link">
-        Courses
-       </a>
-      </div>
-      <div class="navigation__link-box">
-       <a href="#" class="navigation__link">
-        Contests
-       </a>
-      </div>
      </nav>
     </header>
     <main>
      <div class="section-about">
-      <div>{book ? <img src={book.image} class="cover" alt="book_image" /> : <Skeleton height={650} />}</div>
+      {book ? (
+       <img src={book.image} class="cover" alt="book_image" />
+      ) : (
+       <>
+        <div class="cover-skeleton cover-skeleton--desktop">
+         <Skeleton width={450} height={620} />
+        </div>
+        <div class="cover-skeleton cover-skeleton--mobile">
+         <Skeleton width={300} height={400} />
+        </div>
+       </>
+      )}
+
       <div class="about" style={{ width: "100%" }}>
        <h1 class="about__title">{book ? book.title : <Skeleton />}</h1>
        <h2 class="about__subtitle">{book ? book.subtitle : <Skeleton />}</h2>
        <p class="about__desc">{book ? book.description : <Skeleton count={15} />}</p>
+       <div class="about__button">
+        <button
+         class="btn btn--playball"
+         onClick={() => {
+          setCartBooks((prev) => {
+           let dum = [...prev];
+           let f = -1;
+           for (let k = 0; k < dum.length; k++) {
+            if (dum[k].title === name) {
+             dum[k].quantity = 1;
+             f = k;
+             break;
+            }
+           }
+           if (book) {
+            book.quantity = 1;
+            if (f === -1) dum.push(book);
+           }
+
+           return dum;
+          });
+          history.push("/payment");
+         }}
+        >
+         Buy Now!
+        </button>
+       </div>
       </div>
      </div>
      <div class="div-chapters">
       <h1 class="primary-heading">Chapter-wise Summary</h1>
-      <div class="section-chapters">
-       <nav class="sidebar">
-        {book ? (
-         <ul class="side-nav">
-          {" "}
-          {book.chapters.map((chapter, i) => {
-           if (i === chap) {
-            return (
-             <li class="side-nav__item side-nav__item--active">
-              <button
-               onClick={() => {
-                setChap(i);
-               }}
-               class="side-nav__link"
-              >
-               {chapter.name}
-              </button>
-             </li>
-            );
-           } else {
-            return (
-             <li class="side-nav__item ">
-              <button
-               onClick={() => {
-                setChap(i);
-               }}
-               class="side-nav__link"
-              >
-               {chapter.name}
-              </button>
-             </li>
-            );
-           }
-          })}{" "}
-         </ul>
-        ) : (
-         <Skeleton height={40} count={8} />
-        )}
-       </nav>
-       {book
-        ? book.chapters.map((chapter, i) => {
-           if (i === chap) {
-            return <div class="chap-desc">{chapter.desc}</div>;
-           }
-          })
-        : null}
+      <div class="section-carousel">
+       {book ? (
+        <Carousel
+         renderButtonGroupOutside={true}
+         swipeable={true}
+         draggable={true}
+         showDots={true}
+         keyBoardControl={true}
+         responsive={responsive}
+         customRightArrow={<CustomRightArrow />}
+         customLeftArrow={<CustomLeftArrow />}
+        >
+         {book.chapters.map((chapter, i) => {
+          return (
+           <div class="card">
+            <div class="card__side card__side--front">
+             <div class="card__front">
+              <p>{i + 1}</p>
+              <hr />
+              <p>{chapter.name}</p>
+             </div>
+             <button
+              class="card__manual"
+              onClick={() => {
+               let elements1 = document.querySelectorAll(".card__side--front");
+               let elements2 = document.querySelectorAll(".card__side--back");
+
+               if (elements1) {
+                console.log("dsxc");
+                elements1[i].classList.toggle("card__hover-front");
+               }
+               if (elements2) {
+                elements2[i].classList.toggle("card__hover-back");
+               }
+              }}
+             >
+              Explore
+             </button>
+            </div>
+            <div
+             class="card__side card__side--back"
+             onClick={() => {
+              let elements1 = document.querySelectorAll(".card__side--front");
+              let elements2 = document.querySelectorAll(".card__side--back");
+
+              if (elements1) {
+               console.log("dsxc");
+               elements1[i].classList.toggle("card__hover-front");
+              }
+              if (elements2) {
+               elements2[i].classList.toggle("card__hover-back");
+              }
+             }}
+            >
+             <div class="card__back">{chapter.desc}</div>
+            </div>
+           </div>
+          );
+         })}
+        </Carousel>
+       ) : null}
       </div>
      </div>
 
@@ -174,7 +249,17 @@ function Book() {
       <h1 class="primary-heading">Appreciation for the Book</h1>
 
       {book ? (
-       <Carousel swipeable={true} draggable={true} showDots={true} keyBoardControl={true} infinite={true} responsive={responsive}>
+       <Carousel
+        renderButtonGroupOutside={true}
+        swipeable={true}
+        draggable={true}
+        showDots={true}
+        keyBoardControl={true}
+        infinite={true}
+        responsive={responsive}
+        customRightArrow={<CustomRightArrow />}
+        customLeftArrow={<CustomLeftArrow />}
+       >
         {book.testimonials.map((testimonial, i) => {
          return (
           <div class="testimonial-box">
@@ -197,7 +282,7 @@ function Book() {
 
      <div class="section-books">
       <h1 class="primary-heading">Other Titles in our Wisdom Library</h1>
-      <h2 class="secondary-heading">Ac feugiat sed lectus vestibulum mattis ullamcorper velit</h2>
+
       <div class="section-books__container">
        {allBooks.map((currBook, i) => {
         if (currBook.title !== name) {
@@ -205,13 +290,14 @@ function Book() {
           <div
            class="book-box"
            onClick={() => {
+            setBook(currBook);
+            window.scrollTo(0, 0);
             history.push(`/book/${currBook.title}`);
            }}
           >
            <img src={currBook.image} alt="other-books" class="book-box__img" />
            <h3>{currBook.title}</h3>
            <h4>{currBook.subtitle}</h4>
-           <p>{currBook.description.slice(0, 300)} ...</p>
           </div>
          );
         }
