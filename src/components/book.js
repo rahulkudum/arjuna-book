@@ -40,6 +40,7 @@ function Book() {
  const [book, setBook] = useState();
  const [chap, setChap] = useState(0);
  const [allBooks, setAllBooks] = useState([]);
+ const [latestWebinar, setLatestWebinar] = useState("");
 
  console.log(window.screen.width);
 
@@ -68,13 +69,10 @@ function Book() {
       console.error(err);
      });
    })
-
    .catch((err) => {
     console.log(err);
    });
-
-  console.log(book);
- }, [name]);
+ }, []);
 
  const CustomRightArrow = ({ onClick, ...rest }) => {
   const {
@@ -125,7 +123,7 @@ function Book() {
        </a>
       </div>
       <div class="navigation__link-box">
-       <a href="#" class="navigation__link">
+       <a href="https://arjunaregistration.web.app" class="navigation__link">
         Webinars
        </a>
       </div>

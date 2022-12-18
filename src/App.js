@@ -13,10 +13,10 @@ function App() {
      return null;
     }}
    />
-
    <Route exact path="/book/:name">
     <Book />
    </Route>
+   <Route path="/booklaunch" render={() => <Redirect to="/book/Parenting Teenagers" />} />
    <Route path="/payment">
     <Pform />
    </Route>

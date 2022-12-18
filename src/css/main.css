@@ -1,20 +1,4 @@
-/*
-0 - 600px:      Phone
-600 - 900px:    Tablet portrait
-900 - 1200px:   Tablet landscape
-[1200 - 1800] is where our normal styles apply
-1800px + :      Big desktop
 
-$breakpoint arguement choices:
-- phone
-- tab-port
-- tab-land
-- big-desktop
-
-ORDER: Base + typography > general layout + grid > page layout > components
-
-1em = 16px
-*/
 @import url("https://fonts.googleapis.com/css2?family=Neuton:ital@1&family=Playball&family=Sahitya:wght@400;700&family=Sail&display=swap");
 @keyframes moveInLeft {
   0% {
@@ -453,7 +437,7 @@ body {
 .testimonial-box {
   font-size: 2.6rem;
   line-height: 3rem;
-  margin: 0 10rem 5rem 10rem; }
+  margin: 0 8rem 5rem 8rem; }
   @media only screen and (max-width: 56.25em) {
     .testimonial-box {
       margin: 0 5rem 10rem 5rem; } }
@@ -516,7 +500,8 @@ body {
     font-weight: normal;
     font-size: 2.6rem;
     line-height: 3.5rem;
-    word-spacing: 0.8rem;
+    text-align: justify;
+    text-justify: inter-word;
     white-space: pre-line; }
   .about__button {
     display: flex;
@@ -614,7 +599,7 @@ body {
 
 .section-carousel {
   text-align: center;
-  padding: 0 5rem 3rem 5rem; }
+  padding: 0 10rem 3rem 10rem; }
   @media only screen and (max-width: 56.25em) {
     .section-carousel {
       padding: 0;
